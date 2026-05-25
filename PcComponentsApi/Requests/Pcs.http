@@ -1,0 +1,85 @@
+﻿@PcComponentsApi_HostAddress = http://localhost:5048
+
+### Get all PCs
+GET {{PcComponentsApi_HostAddress}}/api/pcs
+Accept: application/json
+
+###
+
+### Get PC with components
+GET {{PcComponentsApi_HostAddress}}/api/pcs/1/components
+Accept: application/json
+
+###
+
+### Get non-existing PC with components
+GET {{PcComponentsApi_HostAddress}}/api/pcs/999/components
+Accept: application/json
+
+###
+
+### Create PC
+POST {{PcComponentsApi_HostAddress}}/api/pcs
+Content-Type: application/json
+
+{
+  "name": "Student Laptop",
+  "weight": 2.4,
+  "warranty": 24,
+  "createdAt": "2026-05-25T20:00:00",
+  "stock": 7
+}
+
+###
+
+### Create PC with invalid data
+POST {{PcComponentsApi_HostAddress}}/api/pcs
+Content-Type: application/json
+
+{
+  "name": "Invalid PC",
+  "weight": 0,
+  "warranty": 999999,
+  "createdAt": "2026-05-25T20:00:00",
+  "stock": 999999999
+}
+
+###
+
+### Update PC
+PUT {{PcComponentsApi_HostAddress}}/api/pcs/1
+Content-Type: application/json
+
+{
+  "name": "Updated Gaming Beast X",
+  "weight": 12.1,
+  "warranty": 48,
+  "createdAt": "2026-05-08T09:00:00",
+  "stock": 4
+}
+
+###
+
+### Update non-existing PC
+PUT {{PcComponentsApi_HostAddress}}/api/pcs/999
+Content-Type: application/json
+
+{
+  "name": "Ghost PC",
+  "weight": 5.5,
+  "warranty": 24,
+  "createdAt": "2026-05-25T20:00:00",
+  "stock": 1
+}
+
+###
+
+### Delete PC
+DELETE {{PcComponentsApi_HostAddress}}/api/pcs/3
+Accept: application/json
+
+###
+
+### Delete non-existing PC
+DELETE {{PcComponentsApi_HostAddress}}/api/pcs/999
+Accept: application/json
