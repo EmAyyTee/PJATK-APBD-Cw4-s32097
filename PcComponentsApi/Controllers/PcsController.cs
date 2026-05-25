@@ -39,11 +39,6 @@ public class PcsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<PcResponseDto>> Create(CreatePcDto dto)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-
         var createdPc = await _pcService.CreateAsync(dto);
 
         return CreatedAtAction(
@@ -56,11 +51,6 @@ public class PcsController : ControllerBase
     [HttpPut("{id:int}")]
     public async Task<ActionResult<PcResponseDto>> Update(int id, UpdatePcDto dto)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
-
         var updatedPc = await _pcService.UpdateAsync(id, dto);
 
         if (updatedPc is null)

@@ -8,14 +8,14 @@ public class UpdatePcDto
     [MaxLength(50)]
     public string Name { get; set; } = null!;
 
-    [Range(0.01, double.MaxValue)]
+    [Range(0.1, 100.0)]
     public double Weight { get; set; }
 
-    [Range(1, int.MaxValue)]
+    [Range(1, 120)]
     public int Warranty { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
-    [Range(0, int.MaxValue)]
+    [Range(0, 10000)]
     public int Stock { get; set; }
 }
